@@ -303,6 +303,11 @@ class CventClient extends SoapClient {
 		$response = $this->client->Search((object) array('ObjectType' => $objecttype, 'CvSearchObject' => (object) array('SearchType' => $type, 'Filter' => $filters)));
 		return $response;
 	}
+
+	public function GetUpdated($objecttype, $startdate, $enddate)  {
+		$response = $this->client->GetUpdated((object) array('ObjectType' => $objecttype, 'StartDate' => $startdate, 'EndDate' => $enddate));
+		return $response;
+	}
 }
 
 
