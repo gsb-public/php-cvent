@@ -33,7 +33,8 @@ class CventClient extends SoapClient {
 	public function Login($acct, $username, $password) {
 		$this->client = new SoapDebugClient("https://api.cvent.com/soap/V200611.ASMX?WSDL", array('trace' => true, 'exceptions' => true));
 		$cache = true;
-		$file = __DIR__.'/cvent_api_session.txt';
+		//$file = __DIR__.'/cvent_api_session.txt';
+		$file = 'public://cvent_api_session.txt';
 		if($cache && file_exists($file) && time() <= strtotime("+1 hour", $last = filemtime($file))) {
 			# a valid session is cached, use it
 			if($this->debug) print 'CventClient::Session already exists.<br/>';
